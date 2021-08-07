@@ -7,12 +7,17 @@ interface State {
 	bible?: Bible;
 }
 export class App extends Component<{}, State> {
+	constructor(props: {} | Readonly<{}>) {
+		super(props);
+		this.state = {};
+	}
+
 	async componentDidMount() {
-		const bibleData: iVerse[] = await fetch("/rev/bible").then(res =>
+		const bibleData: { bible: iVerse[] } = await fetch("/rev/bible").then(res =>
 			res.json(),
 		);
 
-		const bible = new Bible(bibleData);
+		const bible = new Bible(bibleData.bible);
 		this.setState({ bible });
 	}
 
@@ -25,10 +30,28 @@ export class App extends Component<{}, State> {
 					<div>
 						<h2>{bible.path}</h2>
 						<p>
-							{bible.ls().map(v => (
-								<p>{v}</p>
-							))}
+							<button
+								onClick={() => {
+									bible.up();
+									this.forceUpdate();
+								}}
+							>
+								..
+							</button>
 						</p>
+						{bible.ls().map(v => (
+							<p>
+								<button
+									onClick={() => {
+										bible.select(v);
+										this.forceUpdate();
+									}}
+									dangerouslySetInnerHTML={{
+										__html: v,
+									}}
+								/>
+							</p>
+						))}
 					</div>
 				) : (
 					<div>

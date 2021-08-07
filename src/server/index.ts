@@ -1,11 +1,11 @@
 /** @format */
 
 import express from "express";
+import { Appendices, Bible, Commentary } from "rev";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
 import config from "../../webpack.config";
-import { GetAppendices, GetBible, GetCommentary } from "./revBuffer";
 
 const app = express();
 
@@ -39,21 +39,21 @@ if (devServerEnabled) {
 app.use(express.static("public"));
 
 app.get("/rev/bible", async (_req, res) => {
-	const bible = await GetBible();
+	const bible = await Bible.onReady();
 	res.send({
 		bible: bible.data,
 	});
 });
 
 app.get("/rev/appendices", async (_req, res) => {
-	const appendices = await GetAppendices();
+	const appendices = await Appendices.onReady();
 	res.send({
 		appendices: appendices.data,
 	});
 });
 
 app.get("/rev/commentary", async (_req, res) => {
-	const commentary = await GetCommentary();
+	const commentary = await Commentary.onReady();
 	res.send({
 		commentary: commentary.data,
 	});

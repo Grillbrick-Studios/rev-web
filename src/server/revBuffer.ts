@@ -12,10 +12,10 @@ async function LoadIfExists<T>(
 	}
 
 	try {
-		await fs.stat("data");
+		await fs.stat("public/data");
 	} catch (error) {
 		if (error.code === "ENOENT") {
-			await fs.mkdir("data");
+			await fs.mkdir("public/data");
 		}
 	}
 
@@ -24,6 +24,7 @@ async function LoadIfExists<T>(
 	} catch (error) {
 		if (error.code === "ENOENT") {
 			const dataObject = await fallback();
+			console.log(JSON.stringify(dataObject, null, 2));
 			const { data } = dataObject;
 			const output: iFileData = {
 				date: new Date(),

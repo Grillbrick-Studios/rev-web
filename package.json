@@ -4,10 +4,7 @@
 	"main": "src/server/index.ts",
 	"scripts": {
 		"dev": "nodemon",
-		"start:dev": "NODE_ENV=development webpack",
-		"run:dev": "NODE_ENV=development nodemon build/index.js",
-		"build": "webpack",
-		"start": "ts-node index.ts"
+		"start": "ts-node src/server/index.ts"
 	},
 	"devDependencies": {
 		"@tsconfig/node14": "^1.0.1",
