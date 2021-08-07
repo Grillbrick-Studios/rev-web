@@ -46,17 +46,17 @@ async function LoadIfExists<T>(
 	return dataJson.data;
 }
 
-export async function GetBible() {
+export async function GetBible(): Promise<Bible> {
 	const bibleData: Verse[] = await LoadIfExists(
-		"data/bible.json",
+		"public/data/bible.json",
 		Bible.onReady,
 	);
 	return new Bible(bibleData);
 }
 
-export async function GetAppendices() {
+export async function GetAppendices(): Promise<Appendices> {
 	const appendixData = await LoadIfExists(
-		"data/appendices.json",
+		"public/data/appendices.json",
 		Appendices.onReady,
 	);
 	return new Appendices(appendixData);
@@ -64,7 +64,7 @@ export async function GetAppendices() {
 
 export async function GetCommentary() {
 	const commentaryData = await LoadIfExists(
-		"data/commentary.json",
+		"public/data/commentary.json",
 		Commentary.onReady,
 	);
 	return new Commentary(commentaryData);

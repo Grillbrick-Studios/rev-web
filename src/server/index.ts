@@ -5,6 +5,7 @@ import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
 import config from "../../webpack.config";
+import { GetAppendices, GetBible, GetCommentary } from "./revBuffer";
 
 const app = express();
 
@@ -37,9 +38,24 @@ if (devServerEnabled) {
 
 app.use(express.static("public"));
 
-app.get("**", (_req, res) => {
+app.get("/rev/bible", async (_req, res) => {
+	const bible = await GetBible();
 	res.send({
-		message: "hello world",
+		bible: bible.data,
+	});
+});
+
+app.get("/rev/appendices", async (_req, res) => {
+	const appendices = await GetAppendices();
+	res.send({
+		appendices: appendices.data,
+	});
+});
+
+app.get("/rev/commentary", async (_req, res) => {
+	const commentary = await GetCommentary();
+	res.send({
+		commentary: commentary.data,
 	});
 });
 
