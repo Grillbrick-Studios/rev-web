@@ -16,14 +16,24 @@ const config: Configuration = {
 		host: "localhost",
 	},
 	entry: {
-		app: ["./src/client/index.ts"],
+		app: ["./src/client/index.tsx"],
+	},
+	devtool: "inline-source-map",
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				use: "ts-loader",
+				exclude: /node_modules/,
+			},
+		],
 	},
 	output: {
 		path: path.resolve(__dirname, "public"),
 		filename: "[name].js",
 	},
 	resolve: {
-		extensions: [".ts", ".js"],
+		extensions: [".ts", ".tsx", ".js", ".json"],
 	},
 	externals: [nodeExternals()],
 	watch: NODE_ENV === "development",

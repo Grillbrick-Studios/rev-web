@@ -37,7 +37,7 @@ if (devServerEnabled) {
 
 app.use(express.static("public"));
 
-app.get("/", (_req, res) => {
+app.get("**", (_req, res) => {
 	res.send({
 		message: "hello world",
 	});
