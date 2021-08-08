@@ -11,7 +11,7 @@ const app = express();
 
 const { PORT = 80 } = process.env;
 
-const devServerEnabled = true;
+const devServerEnabled = false;
 
 if (devServerEnabled) {
 	//reload=true:Enable auto reloading when changing JS files or content
@@ -34,6 +34,17 @@ if (devServerEnabled) {
 
 	//Enable "webpack-hot-middleware"
 	app.use(webpackHotMiddleware(compiler));
+} else {
+	// Just compile to the public path
+	const compiler = webpack(config);
+
+	compiler.run((err, result) => {
+		if (err) {
+			console.error(err);
+		} else {
+			console.log(result);
+		}
+	});
 }
 
 app.use(express.static("public"));

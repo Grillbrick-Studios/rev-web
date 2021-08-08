@@ -4,7 +4,8 @@
 	"main": "src/server/index.ts",
 	"scripts": {
 		"dev": "nodemon",
-		"start": "ts-node src/server/index.ts"
+		"build": "tsc",
+		"start": "node lib/src/server/index.js"
 	},
 	"devDependencies": {
 		"@tsconfig/node14": "^1.0.1",

@@ -21,3 +21,5 @@
 
 # Ignore large generated files
 data
+lib/
+public/*.js**
