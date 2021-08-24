@@ -4762,6 +4762,14 @@ resolve@^1.9.0:
   languageName: node
   linkType: hard
 
+"rev-bible@portal:../rev::locator=rev-bin%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "rev-bible@portal:../rev::locator=rev-bin%40workspace%3A."
+  dependencies:
+    node-fetch: ^2.6.1
+  languageName: node
+  linkType: soft
+
 "rev-bin@workspace:.":
   version: 0.0.0-use.local
   resolution: "rev-bin@workspace:."
@@ -4781,7 +4789,7 @@ resolve@^1.9.0:
     nodemon: ^2.0.12
     react: ^17.0.2
     react-dom: ^17.0.2
-    rev: ^0.0.1
+    rev-bible: ^2.1.0
     simple-terminal-menu: ^2.0.0
     ts-loader: ^9.2.5
     ts-node: ^10.1.0
@@ -4793,14 +4801,6 @@ resolve@^1.9.0:
     webpack-hot-middleware: ^2.25.0
     webpack-node-externals: ^3.0.0
   languageName: unknown
-  linkType: soft
-
-"rev@portal:../rev::locator=rev-bin%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "rev@portal:../rev::locator=rev-bin%40workspace%3A."
-  dependencies:
-    node-fetch: ^2.6.1
-  languageName: node
   linkType: soft
 
 "rimraf@npm:^2.6.3":

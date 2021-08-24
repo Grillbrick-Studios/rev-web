@@ -1,7 +1,7 @@
 /** @format */
 
 import express from "express";
-import { Appendices, Bible, Commentary } from "rev";
+import { Appendices, Bible, Commentary } from "rev-bible";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
@@ -11,7 +11,7 @@ const app = express();
 
 const { PORT = 80 } = process.env;
 
-const devServerEnabled = false;
+const devServerEnabled = true;
 
 if (devServerEnabled) {
 	//reload=true:Enable auto reloading when changing JS files or content

@@ -28,7 +28,7 @@
 		"node-fetch": "^2.6.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
-		"rev": "^0.0.1",
+		"rev-bible": "^2.1.0",
 		"simple-terminal-menu": "^2.0.0",
 		"ts-node": "^10.1.0",
 		"webpack": "^5.49.0",
@@ -38,6 +38,6 @@
 		"webpack-hot-middleware": "^2.25.0"
 	},
 	"resolutions": {
-		"rev": "portal:../rev"
+		"rev-bible": "portal:../rev"
 	}
 }
