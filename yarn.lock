@@ -4789,7 +4789,7 @@ resolve@^1.9.0:
     nodemon: ^2.0.12
     react: ^17.0.2
     react-dom: ^17.0.2
-    rev-bible: ^2.1.0
+    rev-bible: latest
     simple-terminal-menu: ^2.0.0
     ts-loader: ^9.2.5
     ts-node: ^10.1.0
